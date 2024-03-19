@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<head>
-	<link rel="stylesheet" href="styles.css">
-</head>
+  <body>
+    <script>
+      function secondHighest(arr) {
+        //Write your code here
+        if (arr.length == 0 || arr.length == 1) {
+          return "-Infinity";
+        } else {
+          arr.sort((a, b) => a - b);
+          let flag = true;
+          for (let i = 0; i < arr.length - 1; i++) {
+            if (arr[i] != arr[i + 1]) {
+              flag = false;
+            }
+          }
+          if (flag) {
+            return "-Infinity";
+          } else {
+            return arr[arr.length - 2];
+          }
+        }
+      }
 
-<body>	
-	<script>
-		function secondHighest(arr) {
-			//Write your code here
-			
-		}
+      function Main() {
+        var n = prompt("Enter the number of elements");
+        var arr = [];
+        for (var i = 0; i < n; i++) {
+          arr[i] = prompt("Enter element " + (i + 1));
+        }
+        alert(secondHighest(arr));
+      }
+      Main();
+    </script>
 
-		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
-			alert(secondHighest(arr));
-		}
-		Main();
-	</script>
-
-    <script type="text/javascript" src="./script.js">
-</script>
-
-</body>
-
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
 </html>
