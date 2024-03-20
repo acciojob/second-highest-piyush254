@@ -7,25 +7,37 @@
 
   <body>
     <script>
+      // function secondHighest(arr) {
+      //   //Write your code here
+      //   if (arr.length == 0 || arr.length == 1) {
+      //     return "-Infinity";
+      //   } else {
+      //     arr.sort((a, b) => a - b);
+      //     let flag = true;
+      //     for (let i = 0; i < arr.length - 1; i++) {
+      //       if (arr[i] != arr[i + 1]) {
+      //         flag = false;
+      //       }
+      //     }
+      //     if (flag) {
+      //       return "-Infinity";
+      //     } else {
+      //       return arr[arr.length - 2];
+      //     }
+      //   }
+      // }
       function secondHighest(arr) {
-        //Write your code here
-        if (arr.length == 0 || arr.length == 1) {
-          return "-Infinity";
-        } else {
-          arr.sort((a, b) => a - b);
-          let flag = true;
-          for (let i = 0; i < arr.length - 1; i++) {
-            if (arr[i] != arr[i + 1]) {
-              flag = false;
-            }
-          }
-          if (flag) {
-            return "-Infinity";
-          } else {
-            return arr[arr.length - 2];
-          }
-        }
-      }
+			let first = -Infinity, second = -Infinity;
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i] > first) {
+				second = first;
+				first = arr[i];
+				} else if (arr[i] > second && arr[i] < first) {
+				second = arr[i];
+				}
+			}
+			return second;
+		}
 
       function Main() {
         var n = prompt("Enter the number of elements");
